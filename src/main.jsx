@@ -322,20 +322,28 @@ function AdminFlow() {
 
   if (!token) {
     return (
-      <main className="center-grid">
-        <form className="panel login-panel" onSubmit={login}>
-          <Lock size={34} />
+      <main className="center-grid login-bg-wrapper">
+        <div className="bg-orb orb-1"></div>
+        <div className="bg-orb orb-2"></div>
+        <div className="bg-orb orb-3"></div>
+        <form className="panel login-panel glass-panel" onSubmit={login}>
+          <div className="login-icon-wrapper">
+            <Lock size={34} className="glow-icon" />
+          </div>
           <h1>Admin sign in</h1>
-          <label className="field">
-            <span>Admin ID</span>
-            <input value={credentials.adminId} onChange={(event) => setCredentials({ ...credentials, adminId: event.target.value })} placeholder="admin" />
-          </label>
-          <label className="field">
-            <span>Password</span>
-            <input type="password" value={credentials.password} onChange={(event) => setCredentials({ ...credentials, password: event.target.value })} placeholder="admin123" />
-          </label>
-          {error && <div className="error">{error}</div>}
-          <button className="primary-action">
+          <p className="login-subtitle">Secure access to intelligence review</p>
+          <div className="input-group">
+            <label className="field">
+              <span>Admin ID</span>
+              <input value={credentials.adminId} onChange={(event) => setCredentials({ ...credentials, adminId: event.target.value })} placeholder="admin" className="glass-input" />
+            </label>
+            <label className="field">
+              <span>Password</span>
+              <input type="password" value={credentials.password} onChange={(event) => setCredentials({ ...credentials, password: event.target.value })} placeholder="admin123" className="glass-input" />
+            </label>
+          </div>
+          {error && <div className="error glass-error">{error}</div>}
+          <button className="primary-action glow-button">
             <LogIn size={18} />
             Sign in
           </button>
